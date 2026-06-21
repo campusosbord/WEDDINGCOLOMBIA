@@ -56,7 +56,6 @@ export const POST: APIRoute = async ({ request }) => {
             plan_type: 'financiamiento-2',
           },
         },
-        submit_type: 'pay',
         success_url: `${origin}/?success=true`,
         cancel_url: `${origin}/checkout`,
       };
@@ -77,7 +76,6 @@ export const POST: APIRoute = async ({ request }) => {
             plan_type: 'financiamiento-3',
           },
         },
-        submit_type: 'pay',
         success_url: `${origin}/?success=true`,
         cancel_url: `${origin}/checkout`,
       };
