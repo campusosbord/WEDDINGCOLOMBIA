@@ -43,31 +43,43 @@ const isCheckout = pathname === '/checkout' || pathname === '/checkout/' || path
 		<link rel="preload" href="/.netlify/images?url=_astro%2Fwedding-hero.ChW2o0Fy.webp&#38;fm=webp&#38;w=1024&#38;h=683&#38;q=75" as="image" media="(min-width: 641px) and (max-width: 1024px)" />
 		<link rel="preload" href="/.netlify/images?url=_astro%2Fwedding-hero.ChW2o0Fy.webp&#38;fm=webp&#38;w=2070&#38;h=1380&#38;q=75" as="image" media="(min-width: 1025px)" />
 
-		<!-- Google Tag Manager (deferred to not block rendering) -->
+		<!-- Google Tag Manager & GA4 deferred intelligently after first interaction or timeout -->
 		<script is:inline>
 		window.addEventListener('DOMContentLoaded', function() {
-			(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-			new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-			j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-			'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-			})(window,document,'script','dataLayer','GTM-P5F9NFNR');
-		});
-		</script>
+			// Hilo de carga diferido para herramientas de Google
+			function loadGoogleScripts() {
+				if (window.googleScriptsLoaded) return;
+				window.googleScriptsLoaded = true;
 
-		<!-- Google tag (gtag.js) - deferred -->
-		<script is:inline>
-		window.addEventListener('DOMContentLoaded', function() {
-			var s = document.createElement('script');
-			s.async = true;
-			s.src = 'https://www.googletagmanager.com/gtag/js?id=G-NLSP38RBXJ';
-			document.head.appendChild(s);
-			s.onload = function() {
-				window.dataLayer = window.dataLayer || [];
-				function gtag(){dataLayer.push(arguments);}
-				window.gtag = gtag;
-				gtag('js', new Date());
-				gtag('config', 'G-NLSP38RBXJ');
-			};
+				// 1. Google Tag Manager
+				(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+				new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+				j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+				'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+				})(window,document,'script','dataLayer','GTM-P5F9NFNR');
+
+				// 2. Google Analytics (gtag.js)
+				var s = document.createElement('script');
+				s.async = true;
+				s.src = 'https://www.googletagmanager.com/gtag/js?id=G-NLSP38RBXJ';
+				document.head.appendChild(s);
+				s.onload = function() {
+					window.dataLayer = window.dataLayer || [];
+					function gtag(){dataLayer.push(arguments);}
+					window.gtag = gtag;
+					gtag('js', new Date());
+					gtag('config', 'G-NLSP38RBXJ');
+				};
+			}
+
+			// Disparar la carga ante la primera interacción física del usuario o un tiempo límite de 2.5s
+			const triggerEvents = ['pointerdown', 'touchstart', 'scroll', 'mousemove', 'keydown'];
+			triggerEvents.forEach(function(event) {
+				window.addEventListener(event, loadGoogleScripts, { once: true, passive: true });
+			});
+
+			// Carga de respaldo si no hay interacción en 2.5 segundos
+			setTimeout(loadGoogleScripts, 2500);
 		});
 		</script>
 
