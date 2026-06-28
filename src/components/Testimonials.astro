@@ -193,11 +193,11 @@ const testimonials = [
 
       </div>
 
-      <!-- Mobile: Carousel single container with fixed positioning logic -->
-      <div class="md:hidden relative min-h-[300px]">
+      <!-- Mobile: Carousel stacked using CSS Grid to allow smooth transitions without layout shifts -->
+      <div class="md:hidden grid grid-cols-1 grid-rows-1 w-full">
         {testimonials.map((t, i) => (
           <div 
-            class="testimonial-card bg-white rounded-2xl p-6 border border-slate-100 relative overflow-hidden absolute inset-0 flex flex-col justify-between"
+            class="testimonial-card bg-white rounded-2xl p-6 border border-slate-100 overflow-hidden flex flex-col justify-between transition-all duration-300 col-start-1 row-start-1"
             x-show={`currentMobile === ${i}`}
             x-transition:enter="transition ease-out duration-400"
             x-transition:enter-start="opacity-0 translate-x-4"
