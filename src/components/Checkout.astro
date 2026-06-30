@@ -158,23 +158,6 @@ import FAQ from './FAQ.astro';
             </div>
           </div>
 
-          <div class="mt-8 pt-6 border-t border-slate-100">
-            <div class="bg-blue-50 rounded-lg p-4 flex items-center justify-between group cursor-pointer hover:bg-blue-100 transition-colors" onclick="window.open('https://wa.me/13072923715?text=Hola%2C%20tengo%20problemas%20para%20realizar%20el%20pago%20en%20la%20web%20del%20%2AM%C3%81STER%20EJECUTIVO%20EN%20ORGANIZACI%C3%93N%20DE%20EVENTOS%20%26%20WEDDING%20PLANNER%20PARA%20COLOMBIA%2A', '_blank')">
-              <div class="flex items-center gap-3">
-                <div class="bg-white p-2 rounded-full text-blue-600 shadow-sm border border-blue-100 group-hover:scale-110 transition-transform">
-                   <HelpCircle class="w-5 h-5" />
-                </div>
-                <div>
-                  <p class="text-sm font-bold text-navy">¿Problemas con el pago?</p>
-                  <p class="text-xs text-slate-500">Contactar Soporte de Caja</p>
-                </div>
-              </div>
-              <div class="bg-white px-3 py-1 rounded-full text-xs font-bold text-blue-600 shadow-sm border border-blue-100">
-                Ayuda
-              </div>
-            </div>
-          </div>
-
           <!-- Final Validation and Stripe Button -->
           <div class="pt-8">
             <button 
@@ -212,6 +195,24 @@ import FAQ from './FAQ.astro';
               <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
               Pago 100% Seguro Procesado por Stripe
             </p>
+          </div>
+
+          <!-- Problems with payment support section -->
+          <div class="mt-8 pt-6 border-t border-slate-100">
+            <div class="bg-blue-50 rounded-lg p-4 flex items-center justify-between group cursor-pointer hover:bg-blue-100 transition-colors" onclick="window.open('https://wa.me/13072923715?text=Hola%2C%20tengo%20problemas%20para%20realizar%20el%20pago%20en%20la%20web%20del%20%2AM%C3%81STER%20EJECUTIVO%20EN%20ORGANIZACI%C3%93N%20DE%20EVENTOS%20%26%20WEDDING%20PLANNER%20PARA%20COLOMBIA%2A', '_blank')">
+              <div class="flex items-center gap-3">
+                <div class="bg-white p-2 rounded-full text-blue-600 shadow-sm border border-blue-100 group-hover:scale-110 transition-transform">
+                   <HelpCircle class="w-5 h-5" />
+                </div>
+                <div>
+                  <p class="text-sm font-bold text-navy">¿Problemas con el pago?</p>
+                  <p class="text-xs text-slate-500">Contactar Soporte de Caja</p>
+                </div>
+              </div>
+              <div class="bg-white px-3 py-1 rounded-full text-xs font-bold text-blue-600 shadow-sm border border-blue-100">
+                Ayuda
+              </div>
+            </div>
           </div>
         </div> <!-- Closing the x-data div -->
 

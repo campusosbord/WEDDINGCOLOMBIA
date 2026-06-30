@@ -9,7 +9,8 @@ import {
   DollarSign, 
   FileSpreadsheet, 
   Gift, 
-  Sparkles 
+  Sparkles,
+  ArrowRight
 } from '@lucide/astro';
 ---
 
@@ -164,5 +165,21 @@ import {
       </div>
 
     </div>
+
+    <!-- Centered CTA Button -->
+    <div class="mt-14 text-center flex flex-col items-center justify-center">
+      <a 
+        href="/checkout" 
+        onclick="trackInitiateCheckout()"
+        class="group relative inline-flex items-center justify-center gap-2 md:gap-3 bg-gradient-to-r from-navy to-navy-light hover:from-navy-light hover:to-navy text-white font-bold text-base md:text-lg px-8 py-4 md:px-12 md:py-5 rounded-xl shadow-xl shadow-navy/25 hover:shadow-2xl hover:shadow-navy/40 transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] w-full sm:w-auto"
+      >
+        <span class="whitespace-nowrap">Inscribirme al Curso y Obtener EventSuite Gratis</span>
+        <ArrowRight class="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform flex-shrink-0" />
+      </a>
+      <p class="text-slate-500 text-xs md:text-sm mt-3.5 font-medium flex items-center gap-1.5 justify-center">
+        <span>🎁 Regalo exclusivo: Acceso de por vida incluido con tu matrícula</span>
+      </p>
+    </div>
+
   </div>
 </section>
