@@ -143,8 +143,8 @@ import { User, Phone } from '@lucide/astro';
             <button 
               @click="handleSubmit()"
               :disabled="!isFormValid || sending"
-              class="group relative w-full font-bold text-sm md:text-base py-4 px-6 rounded-xl transition-all duration-300 flex items-center justify-center gap-2.5 overflow-hidden disabled:opacity-50 disabled:cursor-not-allowed"
-              :class="isFormValid && !sending ? 'bg-gradient-to-r from-gold to-gold-dark text-navy shadow-lg shadow-gold/20 hover:shadow-xl hover:shadow-gold/30 hover:scale-[1.02] active:scale-[0.98]' : 'bg-white/5 text-slate-500 border border-white/10'"
+              class="group relative w-full font-bold text-sm md:text-base py-4 px-6 rounded-xl transition-all duration-300 flex items-center justify-center gap-2.5 overflow-hidden bg-gradient-to-r from-gold to-gold-dark text-navy shadow-lg shadow-gold/20 hover:shadow-xl hover:shadow-gold/30 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+              :class="(!isFormValid || sending) ? 'opacity-50 cursor-not-allowed hover:scale-100' : ''"
             >
               <!-- Shimmer effect on hover -->
               <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 pointer-events-none"></div>
