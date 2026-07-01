@@ -8,7 +8,7 @@ import { User, Phone } from '@lucide/astro';
 ---
 
 <Layout title="Herramientas Gratuitas para Wedding Planners | Instituto Osbord">
-  <main class="relative min-h-screen flex items-center justify-center overflow-hidden bg-navy py-12 px-4">
+  <main class="relative min-h-screen flex items-center justify-center bg-navy py-12 px-4">
 
     <!-- Decorative gold orbs -->
     <div class="absolute top-0 left-0 w-[500px] h-[500px] bg-gold/10 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
@@ -58,20 +58,19 @@ import { User, Phone } from '@lucide/astro';
 
           <!-- Form -->
           <div x-data="{
-            nombre: '',
-            whatsapp: '',
+            nombreUsuario: '',
+            whatsappUsuario: '+57',
             sending: false,
-            whatsappNumber: '13072923715',
             get isFormValid() {
-              return this.nombre.trim() !== '' && this.whatsapp.trim() !== '';
+              return this.nombreUsuario.trim() !== '' && this.whatsappUsuario.trim() !== '' && this.whatsappUsuario.trim() !== '+57';
             },
             async handleSubmit() {
               if (!this.isFormValid || this.sending) return;
               this.sending = true;
 
               const payload = JSON.stringify({
-                nombre: this.nombre.trim(),
-                telefono: this.whatsapp.trim(),
+                nombre: this.nombreUsuario.trim(),
+                telefono: this.whatsappUsuario.trim(),
                 email: 'Lead_WhatsApp@noemail.com',
                 origen: 'weddingcol_lead',
                 page_url: window.location.href,
@@ -99,7 +98,7 @@ import { User, Phone } from '@lucide/astro';
 
             <!-- Name Input -->
             <div class="space-y-1.5">
-              <label for="nombre" class="block text-[10px] font-bold uppercase tracking-[0.15em] text-slate-400">
+              <label for="input_nombre" class="block text-[10px] font-bold uppercase tracking-[0.15em] text-slate-400">
                 Nombre Completo
               </label>
               <div class="relative group">
@@ -108,8 +107,8 @@ import { User, Phone } from '@lucide/astro';
                 </div>
                 <input 
                   type="text" 
-                  id="nombre" 
-                  x-model="nombre"
+                  id="input_nombre" 
+                  x-model="nombreUsuario"
                   placeholder="Ej. Ana María Silva" 
                   class="w-full bg-navy/70 border border-white/10 text-white placeholder-slate-600 rounded-xl py-3.5 pl-11 pr-4 text-sm focus:outline-none focus:border-gold/50 focus:ring-1 focus:ring-gold/30 focus:bg-navy transition-all font-sans"
                 />
@@ -118,7 +117,7 @@ import { User, Phone } from '@lucide/astro';
 
             <!-- WhatsApp Input -->
             <div class="space-y-1.5">
-              <label for="whatsapp" class="block text-[10px] font-bold uppercase tracking-[0.15em] text-slate-400">
+              <label for="input_whatsapp" class="block text-[10px] font-bold uppercase tracking-[0.15em] text-slate-400">
                 WhatsApp (con código de país)
               </label>
               <div class="relative group">
@@ -127,8 +126,8 @@ import { User, Phone } from '@lucide/astro';
                 </div>
                 <input 
                   type="tel" 
-                  id="whatsapp" 
-                  x-model="whatsapp"
+                  id="input_whatsapp" 
+                  x-model="whatsappUsuario"
                   placeholder="Ej. +573001234567" 
                   class="w-full bg-navy/70 border border-white/10 text-white placeholder-slate-600 rounded-xl py-3.5 pl-11 pr-4 text-sm focus:outline-none focus:border-gold/50 focus:ring-1 focus:ring-gold/30 focus:bg-navy transition-all font-sans"
                 />
