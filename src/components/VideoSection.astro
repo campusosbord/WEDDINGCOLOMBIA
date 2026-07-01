@@ -19,15 +19,30 @@ import { ArrowDown } from '@lucide/astro';
 
       <!-- HTML5 Video Player -->
       <video 
+        id="pitch-video"
         class="w-full h-auto display: block;" 
         controls="controls" 
         controlslist="nodownload" 
         oncontextmenu="return false;"
       >
-        <source src="https://pub-397cf5ade9274ec1ae5c78c463b0a44d.r2.dev/WP%20-%20MOD%201_1080p.mp4" type="video/mp4">
+        <source src="https://pub-43479c11d9824c46912d0434d59e3b39.r2.dev/Grabacio%CC%81n%20de%20pantalla1%202026-06-30%20a%20las%2020.57.30.mp4" type="video/mp4">
         Tu navegador no soporta la reproducción de videos.
       </video>
     </div>
+
+    <script>
+      const video = document.getElementById('pitch-video') as HTMLVideoElement | null;
+      if (video) {
+        // Set default playback rate
+        video.defaultPlaybackRate = 1.25;
+        video.playbackRate = 1.25;
+        
+        // Ensure playback rate persists when playing
+        video.addEventListener('play', () => {
+          video.playbackRate = 1.25;
+        });
+      }
+    </script>
 
     <!-- Scroll to Pricing CTA Button -->
     <div class="mt-10 text-center">
