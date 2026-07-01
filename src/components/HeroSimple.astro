@@ -1,0 +1,80 @@
+---
+import { Image } from 'astro:assets';
+import { BadgeCheck, Briefcase, GraduationCap, Timer, Clock } from '@lucide/astro';
+import heroImage from '../images/wedding-hero.webp';
+---
+
+<section class="relative min-h-[70vh] flex items-center justify-center pt-20 pb-12 overflow-hidden">
+  <!-- Dynamic Background with Overlay -->
+  <div class="absolute inset-0 z-0">
+    <Image 
+      src={heroImage} 
+      alt="Boda de lujo decorada con elegancia" 
+      class="w-full h-full object-cover"
+      loading="eager"
+      fetchpriority="high"
+      widths={[640, 1024, 1440, 2070]}
+      sizes="100vw"
+      format="webp"
+      quality={75}
+    />
+    <div class="absolute inset-0 bg-navy/80 mix-blend-multiply"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-navy via-transparent to-transparent"></div>
+  </div>
+
+  <!-- Centered content — no offer box -->
+  <div class="container mx-auto px-4 relative z-10 max-w-4xl text-center text-white space-y-8 py-8">
+    <div class="space-y-6">
+      <div class="flex justify-center">
+        <div class="inline-flex items-center gap-1.5 bg-white/10 backdrop-blur px-4 py-1.5 rounded-full border border-white/20 text-xs md:text-sm font-medium text-gold-light">
+          <span class="animate-pulse text-[10px] md:text-xs">●</span> Cupos Limitados
+        </div>
+      </div>
+      
+      <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold font-serif leading-tight">
+        Curso Ejecutivo en Organización de Eventos & Wedding Planner
+      </h1>
+      
+      <p class="text-lg md:text-2xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-400 max-w-2xl mx-auto drop-shadow-sm pb-1 leading-relaxed">
+        Convierte tu Pasión en un <span class="text-gold italic font-bold">Negocio Rentable</span> con Aval Americano. Domina el arte de crear experiencias inolvidables.
+      </p>
+
+      <!-- Trust Badges -->
+      <div class="flex flex-wrap gap-4 pt-4 justify-center">
+        <div class="flex items-center gap-3 bg-navy-light/50 p-3 rounded-lg border border-white/10 text-left">
+          <BadgeCheck class="text-blue-400 w-6 h-6 shrink-0" />
+          <div>
+            <p class="text-[10px] text-slate-400 uppercase tracking-wider">Aval</p>
+            <p class="font-semibold text-[11px] md:text-sm">Internacional EE.UU 🇺🇸</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 bg-navy-light/50 p-3 rounded-lg border border-white/10 text-left">
+          <Briefcase class="text-emerald-400 w-6 h-6 shrink-0" />
+          <div>
+            <p class="text-[10px] text-slate-400 uppercase tracking-wider">Bolsa de</p>
+            <p class="font-semibold text-[11px] md:text-sm">Empleo Garantizada</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 bg-navy-light/50 p-3 rounded-lg border border-white/10 text-left">
+          <GraduationCap class="text-gold w-6 h-6 shrink-0" />
+          <div>
+            <p class="text-[10px] text-slate-400 uppercase tracking-wider">Clases</p>
+            <p class="font-semibold text-[11px] md:text-sm">100% Online + Tutores</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Duration & Flexibility -->
+      <div class="flex flex-wrap gap-3 pt-2 justify-center">
+        <div class="inline-flex items-center gap-1.5 md:gap-2 bg-emerald-500/20 backdrop-blur-sm px-3 py-1.5 md:px-4 md:py-2 rounded-full border border-emerald-400/30 flex-shrink-0">
+          <Timer class="w-3.5 h-3.5 md:w-4 md:h-4 text-emerald-400" />
+          <span class="text-[10px] md:text-sm font-semibold text-white">Duración: <span class="text-emerald-300">3 Meses</span></span>
+        </div>
+        <div class="inline-flex items-center gap-1.5 md:gap-2 bg-blue-500/20 backdrop-blur-sm px-3 py-1.5 md:px-4 md:py-2 rounded-full border border-blue-400/30 flex-shrink-0">
+          <Clock class="w-3.5 h-3.5 md:w-4 md:h-4 text-blue-400" />
+          <span class="text-[10px] md:text-sm font-semibold text-white">Horarios <span class="text-blue-300">Flexibles</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
